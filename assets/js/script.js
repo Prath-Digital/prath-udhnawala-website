@@ -52,34 +52,25 @@ if (document.querySelector('.typing-text')) {
 // <!-- typed js effect ends -->
 
 async function fetchData(type = "skills") {
-    let filename = type === "skills" ? "skills.json" : "achievements.json";
-    let urlsToTry = [`/${filename}`, `./${filename}`, filename];
-    
-    for (let u of urlsToTry) {
-        try {
-            let response = await fetch(u);
-            if (response.ok) {
-                let data = await response.json();
-                if (Array.isArray(data) && data.length > 0) {
-                    return data;
-                }
-            }
-        } catch (e) {
-            console.warn(`Fetch attempt for ${u} failed:`, e);
-        }
+    const filename = type === "skills" ? "skills.json" : "achievements.json";
+    const response = await fetch(`/${filename}`);
+
+    if (!response.ok) {
+        throw new Error(`Unable to load /${filename}: ${response.status} ${response.statusText}`);
     }
-    
-    if (type === "skills") {
-        return fallbackSkillsData;
-    } else {
-        return fallbackAchievementsData;
+
+    const data = await response.json();
+    if (!Array.isArray(data)) {
+        throw new Error(`Expected /${filename} to contain a JSON array`);
     }
+
+    return data;
 }
 
 function showSkills(skills) {
     let skillsContainer = document.getElementById("skillsContainer");
     if (!skillsContainer) return;
-    let skillList = (Array.isArray(skills) && skills.length > 0) ? skills : fallbackSkillsData;
+    let skillList = Array.isArray(skills) ? skills : [];
     let skillHTML = "";
     skillList.forEach(skill => {
         skillHTML += `
@@ -116,7 +107,7 @@ function showAchievements(achievements) {
     let achievementsContainer = document.querySelector("#achievements .box-container");
     if (!achievementsContainer) return;
 
-    let achievementList = (Array.isArray(achievements) && achievements.length > 0) ? achievements : fallbackAchievementsData;
+    let achievementList = Array.isArray(achievements) ? achievements : [];
 
     let path = window.location.pathname.toLowerCase();
     let isAchievementsPage = path.includes("achievements");
@@ -220,13 +211,13 @@ function showAchievements(achievements) {
     }
 }
 
-fetchData("skills").then(data => {
-    showSkills(data);
-});
+fetchData("skills")
+    .then(showSkills)
+    .catch(error => console.error("Skills loading failed:", error));
 
-fetchData("achievements").then(data => {
-    showAchievements(data);
-});
+fetchData("achievements")
+    .then(showAchievements)
+    .catch(error => console.error("Achievements loading failed:", error));
 
 // <!-- tilt js effect starts -->
 if (typeof VanillaTilt !== 'undefined') {
