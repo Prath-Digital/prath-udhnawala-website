@@ -16,6 +16,10 @@ app.get('/achievements.json', (req, res) => {
     res.sendFile(path.join(__dirname, 'achievements.json'));
 });
 
+app.get('/googlec869992299925f34.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'googlec869992299925f34.html'));
+});
+
 // Route for the main page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
