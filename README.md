@@ -42,7 +42,7 @@
 <p align="center">
   &nbsp; <a href="https://github.com/Prath-Digital" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/733/733553.png" width="50" /></a>
   &nbsp; <a href="https://www.linkedin.com/in/prath-udhnawala/" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" width="50" /></a>
-  &nbsp; <a href="https://www.youtube.com/@EducationFromPrath" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968852.png"  width="50" /></a>
+  &nbsp; <a href="https://www.youtube.com/@PrathDigital" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968852.png"  width="50" /></a>
   &nbsp; <a href="https://x.com/prath_digital" target="_blank" rel="noopener noreferrer"><img src="https://www.freeiconspng.com/uploads/new-x-twitter-logo-png-photo-1.png"  width="50" /></a>
   &nbsp; <a href="https://www.instagram.com/prath.digital/" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/15713/15713420.png" width="50" /></a>
   &nbsp; <a href="https://wa.me/919023720637" target="_blank" rel="noopener noreferrer"><img src="https://cdn-icons-png.flaticon.com/128/15713/15713434.png"  width="50" /></a>
